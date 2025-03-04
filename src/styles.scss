@@ -1,1 +1,55 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import '@angular/material/prebuilt-themes/purple-green.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'VT323', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+// Custom Material theme overrides for neo-retro style
+.mat-mdc-form-field {
+  font-family: 'VT323', monospace !important;
+}
+
+.mat-mdc-select-value,
+.mat-mdc-select-arrow,
+.mat-mdc-form-field-label {
+  color: #00ff00 !important;
+}
+
+.mat-mdc-form-field-focus-overlay {
+  background-color: rgba(0, 255, 0, 0.1);
+}
+
+.mat-mdc-form-field-underline {
+  background-color: #00ff00 !important;
+}
+
+.mat-mdc-option {
+  font-family: 'VT323', monospace !important;
+  font-size: 1.2rem !important;
+}
+
+.mat-mdc-select-panel {
+  background: #1a1a1a !important;
+  border: 2px solid #00ff00 !important;
+}
+
+.mat-mdc-option.mat-mdc-selected:not(.mat-mdc-option-multiple) {
+  background: rgba(0, 255, 0, 0.2) !important;
+}
+
+.mat-mdc-option:hover:not(.mat-mdc-option-disabled) {
+  background: rgba(0, 255, 0, 0.1) !important;
+}

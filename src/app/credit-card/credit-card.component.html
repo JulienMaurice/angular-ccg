@@ -1,0 +1,108 @@
+<div class="credit-card-container">
+  <h1 class="title">CREDIT CARD GENERATOR</h1>
+
+  <div class="controls">
+    <button mat-button (click)="generateNewCard()">
+      <span>GENERATE NEW CARD</span>
+    </button>
+  </div>
+
+  <div class="credit-card" [ngClass]="selectedCardType">
+    <div class="card-chip"></div>
+    <div class="card-brand">
+      <div class="brand-name">{{selectedCardType | uppercase}}</div>
+    </div>
+
+    <div class="card-content">
+      <div class="card-number">
+        <span>{{ formatCardNumber(cardNumber) }}</span>
+        <button mat-icon-button (click)="generateNewCard()">
+          <mat-icon>refresh</mat-icon>
+        </button>
+      </div>
+      <div class="card-details">
+        <div class="cardholder">
+          <label>Card Holder</label>
+          <div class="value">{{ cardholderName }}</div>
+        </div>
+        <div class="expiry">
+          <label>Expires</label>
+          <div class="value">{{ expiryDate }}</div>
+        </div>
+        <div class="cvv">
+          <label>CVV</label>
+          <div class="value">{{ cvv }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="persona-section">
+    <h2>Identity Details</h2>
+    <div class="persona-details">
+      <div class="detail-group">
+        <label>Full Name</label>
+        <div class="value-container">
+          <div class="value">{{ cardholderName }}</div>
+          <button mat-icon-button class="copy-button" [cdkCopyToClipboard]="cardholderName" [matTooltip]="'Copy name'" [matTooltipPosition]="'above'">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="detail-group">
+        <label>Phone Number</label>
+        <div class="value-container">
+          <div class="value">{{ personaPhone }}</div>
+          <button mat-icon-button class="copy-button" [cdkCopyToClipboard]="personaPhone" [matTooltip]="'Copy phone'" [matTooltipPosition]="'above'">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="detail-group">
+        <label>Address</label>
+        <div class="value-container">
+          <div class="value">{{ personaAddress }}</div>
+          <button mat-icon-button class="copy-button" [cdkCopyToClipboard]="personaAddress" [matTooltip]="'Copy address'" [matTooltipPosition]="'above'">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="detail-group">
+        <label>City</label>
+        <div class="value-container">
+          <div class="value">{{ personaCity }}</div>
+          <button mat-icon-button class="copy-button" [cdkCopyToClipboard]="personaCity" [matTooltip]="'Copy city'" [matTooltipPosition]="'above'">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="detail-group">
+        <label>State</label>
+        <div class="value-container">
+          <div class="value">{{ personaState }}</div>
+          <button mat-icon-button class="copy-button" [cdkCopyToClipboard]="personaState" [matTooltip]="'Copy state'" [matTooltipPosition]="'above'">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="detail-group">
+        <label>ZIP Code</label>
+        <div class="value-container">
+          <div class="value">{{ personaZip }}</div>
+          <button mat-icon-button class="copy-button" [cdkCopyToClipboard]="personaZip" [matTooltip]="'Copy ZIP'" [matTooltipPosition]="'above'">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
+      </div>
+      <div class="detail-group">
+        <label>SSN</label>
+        <div class="value-container">
+          <div class="value">{{ personaSSN }}</div>
+          <button mat-icon-button class="copy-button" [cdkCopyToClipboard]="personaSSN" [matTooltip]="'Copy SSN'" [matTooltipPosition]="'above'">
+            <mat-icon>content_copy</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

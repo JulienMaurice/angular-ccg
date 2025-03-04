@@ -1,59 +1,46 @@
-# CreditCardGenerator
+# Credit Card Generator
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+A cyberpunk-themed credit card generator built with Angular 16+. This project serves both as a practical tool and as a testing ground for Angular features and best practices.
 
-## Development server
+## 🎯 Purpose
 
-To start a local development server, run:
+This application was created to:
+- Test and implement various Angular features and patterns
+- Provide a visually appealing, cyberpunk-themed user interface
 
-```bash
-ng serve
-```
+## 🔧 Features
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Credit Card Generation**: Creates realistic credit card numbers for Visa, Mastercard, and American Express
+- **Identity Details**: Generates matching persona information including:
+  - Full Name
+  - Phone Number
+  - Address
+  - City/State/ZIP
+  - SSN (for display only - not real SSNs)
+- **Copy Functionality**: One-click copy for all generated information
+- **Cyberpunk Design**: Features a neo-retro aesthetic with:
+  - Animated grid backgrounds
+  - Glowing effects
+  - Scanline animations
+  - Responsive layout
 
-## Code scaffolding
+## 🚀 Technical Highlights
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Built with Angular 16+ and TypeScript
+- Implements standalone components
+- Uses Angular Material for UI components
+- Features responsive design for mobile and desktop
+- Implements Angular animations
+- Uses modern Angular patterns and best practices
 
-```bash
-ng generate component component-name
-```
+## 💻 Usage
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+The generator can be used for:
+- UI/UX prototyping
+- Testing payment form layouts
+- Generating sample data for development
+- Learning Angular patterns and practices
 
-```bash
-ng generate --help
-```
+## ⚠️ Disclaimer
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+All generated information is for testing and development purposes only. The credit card numbers follow the format of real cards but are not valid for transactions. Personal information (including SSNs) is randomly generated and not connected to real individuals.

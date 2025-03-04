@@ -1,0 +1,502 @@
+:host {
+  display: block;
+  padding: 1rem;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  min-height: 100vh;
+  font-family: 'VT323', monospace;
+  position: relative;
+  overflow-x: hidden;
+
+  @media (min-width: 768px) {
+    padding: 2rem;
+  }
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      linear-gradient(90deg, transparent 50%, rgba(0, 255, 255, 0.03) 50%),
+      linear-gradient(0deg, transparent 50%, rgba(0, 255, 255, 0.03) 50%);
+    background-size: 4px 4px;
+    pointer-events: none;
+    animation: gridMove 20s linear infinite;
+    z-index: 1;
+  }
+}
+
+@keyframes gridMove {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-4px, -4px); }
+}
+
+.credit-card-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.5rem;
+
+  @media (min-width: 768px) {
+    gap: 2rem;
+    padding: 0;
+  }
+}
+
+.title {
+  font-size: 2rem;
+  color: #0ff;
+  text-shadow:
+    0 0 5px #0ff,
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 40px rgba(0, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin: 0;
+  animation: textPulse 2s ease-in-out infinite alternate;
+  text-align: center;
+
+  @media (min-width: 768px) {
+    font-size: 3rem;
+  }
+}
+
+@keyframes textPulse {
+  from {
+    opacity: 0.7;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.controls {
+  margin: 0.5rem 0 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    margin: 1rem 0 2rem;
+  }
+
+  button {
+    width: 100%;
+    max-width: 300px;
+    background: transparent;
+    color: #0ff;
+    border: 2px solid #0ff;
+    padding: 0.8rem 1.5rem;
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow:
+      0 0 10px rgba(0, 255, 255, 0.3),
+      inset 0 0 10px rgba(0, 255, 255, 0.2);
+
+    @media (min-width: 768px) {
+      width: auto;
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+    }
+
+    &:hover {
+      background: rgba(0, 255, 255, 0.1);
+      box-shadow:
+        0 0 20px rgba(0, 255, 255, 0.5),
+        inset 0 0 20px rgba(0, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      border: 2px solid #0ff;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    &:hover::before {
+      opacity: 0.5;
+      transform: scale(1.05);
+    }
+  }
+}
+
+.credit-card {
+  width: 100%;
+  max-width: 450px;
+  aspect-ratio: 1.586;
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(20, 20, 20, 0.8);
+  backdrop-filter: blur(10px);
+  color: white;
+  font-family: 'VT323', monospace;
+  position: relative;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.2),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
+
+  @media (min-width: 768px) {
+    width: 450px;
+    height: 270px;
+    padding: 25px;
+  }
+
+  &:hover {
+    transform: translateY(-5px) rotateX(5deg);
+    box-shadow:
+      0 10px 30px rgba(0, 255, 255, 0.3),
+      inset 0 0 30px rgba(0, 255, 255, 0.2);
+  }
+
+  &.visa {
+    background: linear-gradient(135deg, rgba(26, 31, 113, 0.9) 0%, rgba(43, 53, 149, 0.9) 100%);
+  }
+
+  &.mastercard {
+    background: linear-gradient(135deg, rgba(255, 95, 0, 0.9) 0%, rgba(247, 158, 27, 0.9) 100%);
+  }
+
+  &.amex {
+    background: linear-gradient(135deg, rgba(0, 111, 207, 0.9) 0%, rgba(16, 80, 158, 0.9) 100%);
+  }
+}
+
+.card-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  position: relative;
+  z-index: 2;
+
+  @media (min-width: 768px) {
+    gap: 2rem;
+  }
+}
+
+.card-chip {
+  position: absolute;
+  top: 15%;
+  left: 25px;
+  width: 45px;
+  height: 35px;
+  background: linear-gradient(45deg, #ffd700 0%, #ffaa00 100%);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+  transform: rotate(-5deg);
+
+  @media (min-width: 768px) {
+    width: 60px;
+    height: 45px;
+  }
+
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  &::before {
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 15px;
+    transform: translateY(-50%);
+  }
+
+  &::after {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 15px;
+    transform: translateX(-50%);
+  }
+}
+
+.card-brand {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+
+  .brand-name {
+    font-size: 1rem;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+
+    @media (min-width: 768px) {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.card-number {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    font-size: 2rem;
+    letter-spacing: 4px;
+  }
+
+  button {
+    color: rgba(255, 255, 255, 0.9);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 4px;
+
+    @media (min-width: 768px) {
+      padding: 8px;
+    }
+
+    &:hover {
+      transform: rotate(180deg);
+      color: #0ff;
+    }
+  }
+}
+
+.card-details {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 10px;
+
+  @media (min-width: 768px) {
+    gap: 20px;
+  }
+
+  label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2px;
+    display: block;
+
+    @media (min-width: 768px) {
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+    }
+  }
+
+  .value {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+
+    @media (min-width: 768px) {
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+    }
+  }
+}
+
+// Enhanced scanlines effect
+.credit-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 255, 0.03) 3px,
+      rgba(0, 255, 255, 0.03) 3px
+    );
+  pointer-events: none;
+  border-radius: 15px;
+  animation: scanlines 10s linear infinite;
+  z-index: 1;
+}
+
+@keyframes scanlines {
+  from { transform: translateY(0); }
+  to { transform: translateY(100%); }
+}
+
+.persona-section {
+  width: 100%;
+  max-width: 450px;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: rgba(20, 20, 20, 0.8);
+  border-radius: 15px;
+  border: 1px solid rgba(0, 255, 255, 0.2);
+  box-shadow:
+    0 0 20px rgba(0, 255, 255, 0.2),
+    inset 0 0 20px rgba(0, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+
+  @media (min-width: 768px) {
+    margin-top: 3rem;
+    padding: 2rem;
+  }
+
+  h2 {
+    color: #0ff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+
+    @media (min-width: 768px) {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .persona-details {
+    display: grid;
+    gap: 0.8rem;
+
+    @media (min-width: 768px) {
+      gap: 1rem;
+    }
+
+    .detail-group {
+      display: grid;
+      gap: 0.3rem;
+
+      @media (min-width: 768px) {
+        gap: 0.5rem;
+      }
+
+      label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: rgba(0, 255, 255, 0.7);
+
+        @media (min-width: 768px) {
+          font-size: 0.9rem;
+          letter-spacing: 2px;
+        }
+      }
+
+      .value-container {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        .value {
+          flex: 1;
+          font-size: 1rem;
+          color: white;
+          letter-spacing: 1px;
+          text-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+          word-break: break-word;
+
+          @media (min-width: 768px) {
+            font-size: 1.2rem;
+          }
+        }
+
+        .copy-button {
+          background: transparent;
+          border: none;
+          color: rgba(0, 255, 255, 0.7);
+          cursor: pointer;
+          padding: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s ease;
+          border-radius: 4px;
+          min-width: 32px;
+          height: 32px;
+
+          &:hover {
+            background: rgba(0, 255, 255, 0.1);
+            color: #0ff;
+            transform: scale(1.1);
+          }
+
+          &:active {
+            transform: scale(0.95);
+          }
+
+          mat-icon {
+            font-size: 18px;
+            width: 18px;
+            height: 18px;
+
+            @media (min-width: 768px) {
+              font-size: 20px;
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        rgba(0, 255, 255, 0.02) 10px,
+        rgba(0, 255, 255, 0.02) 20px
+      );
+    pointer-events: none;
+    border-radius: 15px;
+    z-index: 1;
+  }
+}
