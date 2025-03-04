@@ -1,4 +1,4 @@
-# Credit Card Generator
+![Capture d’écran 2025-03-04 à 14 55 28](https://github.com/user-attachments/assets/e873010f-7a89-4a1c-8e1c-b51b670c5db2)
 
 A cyberpunk-themed credit card generator built with Angular 16+. This project serves both as a practical tool and as a testing ground for Angular features and best practices.
 
